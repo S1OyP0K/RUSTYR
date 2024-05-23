@@ -1,0 +1,377 @@
+/* небольшая ремарка, я знаком с scss но в данном случае проект небольшой и я решил что css будет достаточно */
+.main-section__title_litte {
+  color: #cf1212;
+  font-size: clamp(2px, 5vw, 12px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 75px */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.overflow-hidden {
+  overflow: hidden;
+}
+input:focus {
+  outline: none;
+}
+section {
+  padding-top: 80px;
+  padding-bottom: 100px;
+}
+@media (max-width: 820px) {
+  section {
+    padding: 50px 0;
+  }
+}
+.container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  padding: 0 16px;
+  text-align: center;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button {
+  cursor: pointer;
+}
+.button {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 20px; /* 125% */
+  letter-spacing: 0.192px;
+  border-radius: 4px;
+  background: #1a3e3e;
+  color: #fdfdfd;
+  padding: 16px 36px;
+  border: none;
+  display: inline-block;
+  height: fit-content;
+}
+.title {
+  margin-bottom: 40px;
+  color: #18121e;
+  font-size: clamp(24px, 3vw, 32px);
+  font-style: normal;
+  font-weight: 800;
+  line-height: 120%; /* 38.4px */
+}
+.suptitle {
+  color: #f2be22;
+  font-size: clamp(16px, 2vw, 24px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px; /* 83.333% */
+  margin-bottom: 8px;
+  display: block;
+}
+.tac {
+  text-align: center;
+}
+p {
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 27px */
+}
+
+@media (max-width: 1060px) {
+  p {
+    font-size: 16px;
+  }
+  .title {
+    margin-bottom: 32px;
+  }
+}
+
+.header {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 16px;
+  padding-bottom: 6px;
+  top: 0px;
+  width: 100%;
+  z-index: 100;
+  transition: 0.2s linear;
+}
+.header_green {
+  background-color: #1a3e3e;
+}
+.header__container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.header__navigation {
+  margin-left: auto;
+  display: flex;
+  gap: 185px;
+  align-items: center;
+}
+.header__navigation__list {
+  display: flex;
+  color: #fdfdfd;
+  gap: 24px;
+}
+.header__button {
+  padding: 12px 24px;
+}
+.menu-button {
+  width: 30px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5px;
+  align-items: flex-end;
+  display: none;
+  padding: 6px 4.5px;
+  position: relative;
+  transition: 0.2s linear;
+  transition-delay: 0.3s;
+  z-index: 101;
+}
+.menu-button.active {
+  transform: rotate(45deg);
+}
+.menu-button::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 3px;
+  height: 0;
+  border-radius: 5px;
+  background-color: #fff;
+  left: 13px;
+  top: 4.5px;
+  transition: 0.15s linear;
+}
+.menu-button.active::before {
+  height: 21px;
+  transition-delay: 0.15s;
+}
+.menu-button div {
+  width: 21px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 5px;
+  transition: 0.15s linear;
+  transition-delay: 0.15s;
+}
+.menu-button div:first-child {
+  align-self: flex-start;
+}
+.menu-button div:last-child {
+  width: 12px;
+  height: 3px;
+  background-color: #fff;
+  align-self: flex-end;
+}
+
+@media (max-width: 1060px) {
+  .logo img {
+    width: 84px;
+  }
+  .header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .menu-button {
+    display: flex;
+  }
+  .header__navigation {
+    position: fixed;
+    right: -410px;
+    top: 0;
+    height: 100dvh;
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    padding-top: 85px;
+    background-color: #1a3e3e;
+    flex-direction: column;
+    z-index: 100;
+    gap: 30px;
+    transition: 0.1s linear;
+    align-items: flex-start;
+  }
+  .header__navigation__list {
+    flex-direction: column;
+  }
+  .header__button {
+    background-color: #fff;
+    color: #18121e;
+  }
+  .menu-button.active div:first-child {
+    width: 0;
+    align-self: flex-start;
+    transition-delay: 0s;
+  }
+  .menu-button.active div:last-child {
+    width: 0;
+    transition-delay: 0s;
+  }
+  .header__navigation.opened {
+    right: 0;
+  }
+}
+
+.main-section {
+  background: url(../images/main-bg.jpg) no-repeat;
+  background-size: cover;
+  padding: 0;
+}
+
+.main-section .container {
+  padding-bottom: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
+  height: 100%;
+  min-height: 985px;
+}
+.main-section__title {
+  color: #fdfdfd;
+  font-size: clamp(25px, 5vw, 50px);
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 75px */
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.main-section__form {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(3px);
+  padding: 40px 42px;
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+  align-items: center;
+}
+.main-section__form__item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: calc((100% - 74px - -858px) / 3);
+  position: relative;
+  color: #fdfdfd;
+  align-items: center;
+}
+
+/* было бы несложно написать стилей для календаря, но он и так выглядит приятно */
+.custom-datepicker {
+  width: 100%;
+}
+.main-section__form__input {
+  border: 1px solid #e1e3e4;
+  padding: 14px 16px;
+  background: none;
+  border-radius: 8px;
+  line-height: 24px;
+  color: #fdfdfd;
+}
+
+.main-section__form__input::-webkit-calendar-picker-indicator {
+  background-image: url("/assets/images/Vector.jpeg");
+  background-size: contain; /* или любое другое значение для размеров картинки */
+  /* Дополнительные стили по вашему усмотрению */
+  /* Например, можно скрыть стандартную стрелку */
+  opacity: 0;
+  z-index: 1;
+  cursor: pointer; /* Показать курсор при наведении */
+}
+
+.main-section__form__input::placeholder {
+  color: #fdfdfd;
+}
+.main-section__form__button {
+  background-color: #fdfdfd;
+  color: #1a3e3e;
+}
+#programm__button {
+  width: fit-content;
+  background-color: #fdfdfd;
+  color: #1a3e3e;
+  display: none;
+}
+
+@media (max-width: 1060px) {
+  .main-section__form {
+    flex-wrap: wrap;
+  }
+  .main-section__form__item {
+    width: calc(50% - 15px);
+  }
+  .main-section__form__button {
+    width: calc(50% - 15px);
+  }
+}
+
+@media (max-width: 650px) {
+  .main-section__form {
+    flex-direction: column;
+    padding: 20px;
+    width: 100%;
+  }
+  .main-section__form__item {
+    width: 100%;
+  }
+  .main-section__form__button {
+    width: 100%;
+  }
+  .popup-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 20px;
+    transition: 0.2s linear;
+  }
+  ._closed {
+    visibility: hidden;
+  }
+  ._opened {
+    display: flex;
+    visibility: visible;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .popup {
+    opacity: 0;
+    position: relative;
+    top: 20px;
+    transition: 0.2s;
+    background-color: #1a3e3e;
+  }
+  ._opened .popup {
+    opacity: 1;
+    top: 0;
+  }
+  #programm__button {
+    display: inline-block;
+  }
+}

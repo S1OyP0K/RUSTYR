@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../assets/styles/css2.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/custom-datepicker/air-datepicker.css"
+    />
+
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="../assets/scripts/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>РУСТУР</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <a href="" class="logo">
+          <img src="../assets/images/logo.svg" alt="" />
+        </a>
+        <nav class="header__navigation">
+          <ul class="header__navigation__list">
+            <li>
+              <a href="">Главная</a>
+            </li>
+            <li>
+              <a href="">Программа тура</a>
+            </li>
+            <li>
+              <a href="">Стоимость</a>
+            </li>
+            <li>
+              <a href="">Блог</a>
+            </li>
+            <li>
+              <a href="">Контакты</a>
+            </li>
+          </ul>
+          <button id="lk-button" class="header__button button">
+            Личный кабинет
+          </button>
+        </nav>
+        <div class="menu-button">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="main-section">
+        <div class="container">
+          <h1 class="main-section__title">
+            Насладись прогулкой в горах с командой единомышленников
+          </h1>
+
+          <div class="popup-wrapper _closed">
+            <form
+              action="../php/search_tours.php"
+              method="GET"
+              class="main-section__form popup"
+            >
+              <div class="main-section__form__item">
+                <input
+                  class="main-section__form__input"
+                  list="cities"
+                  autocomplete="off"
+                  id="location"
+                  name="cities"
+                  type="text"
+                  placeholder="Локация для тура"
+                />
+                <datalist id="cities">
+                  <option value="Moscow">Москва</option>
+                  <option value="Saint-petersburg">Санкт-Петербург</option>
+                  <option value="Sochi">Сочи</option>
+                  <option value="Izhevsk">Ижевск</option>
+                  <option value="Baikal">Байкал</option>
+                  <option value="Ural Mountains">Уральские горы</option>
+                  <option value="Babyinsky mountains in Udmurtia">
+                    Бабьинские горы в Удмуртии
+                  </option>
+                  <option value="Western Caucasus">Западный Кавказ</option>
+                  <option value="Eastern Caucasus">Восточный Кавказ</option>
+                  <option value="Altai">Алтай</option>
+                </datalist>
+                <span>выберите из списка</span>
+              </div>
+              <div class="main-section__form__item" id="datepicker-container">
+                <input
+                  class="main-section__form__input"
+                  autocomplete="off"
+                  type="text"
+                  name="datepicker"
+                  id="datepicker"
+                  placeholder="Дата похода"
+                />
+                <span>укажите диапазон</span>
+              </div>
+              <div class="main-section__form__item">
+                <input
+                  class="main-section__form__input"
+                  autocomplete="off"
+                  id="members"
+                  name="members1"
+                  type="text"
+                  placeholder="Участники"
+                  list="members1"
+                />
+                <datalist id="members1">
+                  <option value="2"></option>
+                  <option value="3"></option>
+                  <option value="4"></option>
+                  <option value="5"></option>
+                  <option value="6"></option>
+                  <option value="7"></option>
+                  <option value="8"></option>
+                  <option value="9"></option>
+                  <option value="10"></option>
+                </datalist>
+                <span>минимум 2 человека</span>
+              </div>
+              <button class="main-section__form__button button close-popup">
+                Найти программу
+              </button>
+            </form>
+          </div>
+          <button type="submit" class="button open-popup" id="programm__button">
+            Найти программу
+          </button>
+        </div>
+      </section>
+      <section class="about-hike">
+        <div class="container">
+          <div class="about-hike__media">
+            <img
+              src="../assets/images/about-hike-img.jpg"
+              alt=""
+              class="about-hike__img"
+            />
+            <div class="video-wrapper">
+              <video class="about-hike__video">
+                <source
+                  src="../assets/images/sample-5s.mp4"
+                  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
+                />
+              </video>
+            </div>
+          </div>
+          <div class="about-hike__text">
+            <span class="suptitle">о нашем походе</span>
+            <h2 class="title">
+              Исследуйте все туристические места России вместе с нами
+            </h2>
+            <p>
+              Этот маршрут представляет собой уникальное путешествие через
+              историю и природу Восточного Кавказа. Созданный группой
+              энтузиастов-исследователей, он призван поделиться с миром величием
+              этого региона и его богатым культурным наследием.
+            </p>
+            <button class="about-hike__button button">Программа тура</button>
+          </div>
+        </div>
+      </section>
+      <section class="programs">
+        <div class="container">
+          <div class="programs__text">
+            <span class="suptitle">наше предложение</span>
+            <h2 class="title">Лучшие программы для тебя</h2>
+            <p>
+              Этот маршрут представляет собой уникальное путешествие через
+              историю и природу Восточного Кавказа.
+            </p>
+            <ul class="programs__list">
+              <li>
+                <img src="../assets/images/programm-icon.svg" alt="" />
+                <div>
+                  <h3>Опытный гид</h3>
+                  <span
+                    >Для современного мира базовый вектор развития предполагает
+                    независимые способы реализации соответствующих условий
+                    активизации.</span
+                  >
+                </div>
+              </li>
+              <li>
+                <img src="../assets/images/programm-icon2.svg" alt="" />
+                <div>
+                  <h3>Безопасный поход</h3>
+                  <span
+                    >Для современного мира базовый вектор развития предполагает
+                    независимые способы реализации соответствующих условий
+                    активизации.</span
+                  >
+                </div>
+              </li>
+              <li>
+                <img src="../assets/images/programm-icon3.svg" alt="" />
+                <div>
+                  <h3>Лояльные цены</h3>
+                  <span
+                    >Для современного мира базовый вектор развития предполагает
+                    независимые способы реализации соответствующих условий
+                    активизации.</span
+                  >
+                </div>
+              </li>
+            </ul>
+
+            <a href="#" class="programs__button button">Стоимость программ</a>
+          </div>
+          <img
+            src="../assets/images/programs.png"
+            alt=""
+            class="programs__img"
+          />
+        </div>
+      </section>
+      <section class="popular">
+        <div class="container">
+          <span class="suptitle tac">по версии отдыхающих</span>
+          <h2 class="title tac">Популярные направления</h2>
+          <div class="popular-swiper swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="popular__item">
+                  <img
+                    src="../assets/images/popular1.jpg"
+                    alt=""
+                    class="popular__item__bg"
+                  />
+                  <div class="popular__item__info">
+                    <div>
+                      <h3>Озеро возле гор</h3>
+                      <span>романтическое приключение</span>
+                    </div>
+                    <div class="popular__item__price">480 $</div>
+                  </div>
+                  <div class="popular__item__rating">4.9</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="popular__item">
+                  <img
+                    src="../assets/images/popular2.jpg"
+                    alt=""
+                    class="popular__item__bg"
+                  />
+                  <div class="popular__item__info">
+                    <div>
+                      <h3>Ночь в горах</h3>
+                      <span>в компании друзей</span>
+                    </div>
+                    <div class="popular__item__price">480 $</div>
+                  </div>
+                  <div class="popular__item__rating">4.9</div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="popular__item">
+                  <img
+                    src="../assets/images/popular3.jpg"
+                    alt=""
+                    class="popular__item__bg"
+                  />
+                  <div class="popular__item__info">
+                    <div>
+                      <h3>Йога в горах</h3>
+                      <span>для тех, кто забоится о себе</span>
+                    </div>
+                    <div class="popular__item__price">480 $</div>
+                  </div>
+                  <div class="popular__item__rating">4.9</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="#" class="button center-button">Рейтинг направлений</a>
+        </div>
+      </section>
+      <section class="blog">
+        <div class="container">
+          <span class="suptitle tac">делимся впечатлениями</span>
+          <h2 class="title tac">Блог о путешествиях</h2>
+
+          <div class="blog__swiper swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <div class="blog__item">
+                  <img
+                    src="../assets/images/blog-item-img1.jpg"
+                    alt=""
+                    class="blog__item__img"
+                  />
+                  <div class="blog__item__text">
+                    <h3>Красивая Италия, какая она в реальности?</h3>
+                    <p>
+                      Для современного мира базовый вектор развития предполагает
+                      независимые способы реализации соответствующих условий
+                      активизации. Для современного мира базовый вектор развития
+                      предполагает независимые способы реализации
+                      соответствующих условий активизации.
+                    </p>
+                    <div class="blog__item__footer">
+                      <span class="blog__item__date">01/04/2023</span>
+                      <a href="" class="blog__item__link">читать статью</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="blog__item">
+                  <img
+                    src="../assets/images/blog-item-img2.jpg"
+                    alt=""
+                    class="blog__item__img"
+                  />
+                  <div class="blog__item__text">
+                    <h3>Для современного мира базовый.</h3>
+                    <p>
+                      Для современного мира базовый вектор развития
+                      предполагает.
+                    </p>
+                    <div class="blog__item__footer">
+                      <span class="blog__item__date">01/04/2023</span>
+                      <a href="" class="blog__item__link">читать статью</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="blog__item">
+                  <img
+                    src="../assets/images/blog-item-img3.jpg"
+                    alt=""
+                    class="blog__item__img"
+                  />
+                  <div class="blog__item__text">
+                    <h3>Долой сомнения! Весь мир открыт для вас!</h3>
+                    <p>
+                      Для современного мира базовый вектор развития предполагает
+                      независимые способы реализации соответствующих условий
+                      активизации ... независимые способы реализации
+                      соответствующих условий активизации ...Для современного
+                      мира базовый вектор развития предполагает независимые
+                      способы реализации соответствующих условий активизации ...
+                      независимые способы реализации соответствующих условий
+                      активизации
+                    </p>
+                    <div class="blog__item__footer">
+                      <span class="blog__item__date">01/04/2023</span>
+                      <a href="" class="blog__item__link">читать статью</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-slide">
+                <div class="blog__item">
+                  <img
+                    src="../assets/images/blog-item-img4.jpg"
+                    alt=""
+                    class="blog__item__img"
+                  />
+                  <div class="blog__item__text">
+                    <h3>Индия ... летим?</h3>
+                    <p>Для современного мира базовый.</p>
+                    <div class="blog__item__footer">
+                      <span class="blog__item__date">01/04/2023</span>
+                      <a href="" class="blog__item__link">читать статью</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <a href="" class="button center-button">Другие материалы</a>
+        </div>
+      </section>
+      <section class="impressions">
+        <div class="container">
+          <span class="suptitle tac">фото-отчет</span>
+          <h2 class="title tac">Делимся впечатлениями</h2>
+
+          <div class="impressions__items">
+            <img
+              src="../assets/images/photo1.jpg"
+              alt=""
+              class="impressions__item"
+            />
+            <img
+              src="../assets/images/photo2.jpg"
+              alt=""
+              class="impressions__item"
+            />
+            <img
+              src="../assets/images/photo3.jpg"
+              alt=""
+              class="impressions__item"
+            />
+            <img
+              src="../assets/images/photo4.jpg"
+              alt=""
+              class="impressions__item"
+            />
+            <img
+              src="../assets/images/photo5.jpg"
+              alt=""
+              class="impressions__item"
+            />
+            <img
+              src="../assets/images/photo6.jpg"
+              alt=""
+              class="impressions__item"
+            />
+          </div>
+
+          <a href="" class="button center-button">Наш pinterest</a>
+        </div>
+      </section>
+      <section class="mailing">
+        <div class="mailing__content container">
+          <div class="mailing__text">
+            <span class="suptitle">актуально</span>
+            <h2 class="title">Получайте полезные рассылки о путешествиях</h2>
+          </div>
+          <form class="mailing__form">
+            <div class="input-wrapper">
+              <span>Введите e-mail адрес</span>
+              <input
+                id="mailing-email"
+                class="mailing__input"
+                type="text"
+                placeholder="name@domain.com"
+              />
+            </div>
+            <button class="button" type="submit">Подписаться на новости</button>
+            <p class="">
+              подписываясь на новости, вы автоматически соглашаетесь с
+              <a href="">условиями обработки персональных данных</a> и
+              <a href="">правилами рекламных рассылок</a>
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer class="footer">
+      <div class="footer__top container">
+        <div class="footer__main">
+          <h3>Компания «РУСТУР»</h3>
+          <p>
+            Сайт РУСТУР предлагает обширную информацию о туристических маршрутах
+            и достопримечательностях России, помогая путешественникам
+            планировать свои приключения. Отзывы путешественников и полезные
+            советы делают его ценным ресурсом для тех, кто ищет вдохновение и
+            информацию о путешествиях.
+          </p>
+          <div class="footer__contacts">
+            <a href="mailto: info@domain.com">info@domain.com</a>
+            <a href="tel:+7 (123) 456-78-90">+7 (123) 456-78-90</a>
+          </div>
+          <ul class="footer__social">
+            <li>
+              <a href="/">
+                <img src="../assets/images/social/telegram.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="../assets/images/social/vk.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="../assets/images/social/skype.svg" alt="" />
+              </a>
+            </li>
+            <li>
+              <a href="/">
+                <img src="../assets/images/social/pinterest.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer__links-wrapper">
+          <div class="footer__links">
+            <h3>Наши услуги</h3>
+            <ul>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Прогулки в горы летом</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Зимние походы в горы</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Посещение храмов в горах</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Экстремальные виды туризма</a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="footer__links">
+            <h3>Важно для путешествий</h3>
+            <ul>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Как собрать в долгий поход?</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Жизненно важные предметы для похода</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Медицинская страховка, гарантии безопасности</a>
+              </li>
+              <li>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="6"
+                  height="10"
+                  viewBox="0 0 6 10"
+                  fill="none"
+                >
+                  <path
+                    d="M5.7154 4.6098L1.26527 0.159755C1.16235 0.0567475 1.02495 0 0.878448 0C0.731945 0 0.594548 0.0567475 0.491622 0.159755L0.163901 0.487394C-0.0493491 0.700889 -0.0493491 1.04788 0.163901 1.26105L3.90078 4.99793L0.159755 8.73895C0.0568288 8.84196 0 8.97928 0 9.1257C0 9.27228 0.0568288 9.4096 0.159755 9.51269L0.487476 9.84024C0.590483 9.94325 0.727799 10 0.874302 10C1.0208 10 1.1582 9.94325 1.26113 9.84024L5.7154 5.38613C5.81857 5.2828 5.87524 5.14484 5.87491 4.99817C5.87524 4.85094 5.81857 4.71305 5.7154 4.6098Z"
+                    fill="#FDFDFD"
+                  />
+                </svg>
+                <a href="">Если вы врач - загляните сюда</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">
+          <span>ИП Московский М.М., 2024</span>
+          <a href="">Политика обработки персональных данных</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="../assets/scripts/video.js"></script>
+    <script src="../assets/scripts/swiper.js"></script>
+    <script src="../assets/scripts/custom-datepicker/air-datepicker.js"></script>
+    <script src="../assets/scripts/customSelect.js"></script>
+    <script src="../assets/scripts/header.js"></script>
+    <script src="../assets/scripts/popup.js"></script>
+    <script>
+      // Обработчик нажатия кнопки
+      document
+        .getElementById("lk-button")
+        .addEventListener("click", function () {
+          // Выполнение перехода на страницу LK.html
+          window.location.href = "LK.html";
+        });
+    </script>
+    <script>
+      document
+        .querySelector("form")
+        .addEventListener("submit", function (event) {
+          const location = document.querySelector("#location").value;
+          const date = document.querySelector("#datepicker").value;
+          const members = document.querySelector("#members").value;
+
+          if (!location || !date || !members) {
+            alert("Пожалуйста, заполните все поля формы.");
+            event.preventDefault();
+          }
+        });
+    </script>
+  </body>
+</html>

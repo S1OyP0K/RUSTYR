@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../assets/styles/css2.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/custom-datepicker/air-datepicker.css"
+    />
+
+    <link rel="stylesheet" href="../assets/styles/auto.css" />
+
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="../assets/scripts/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>РУСТУР.Авторизация</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <a href="../index.html" class="logo">
+          <img src="../assets/images/logo.svg" alt="" />
+        </a>
+    </header>
+    <main>
+      <section class="main-section">
+        <div class="container">
+          <h1 class="main-section__title">Авторизация</h1>
+          <div class="popup-wrapper _closed">
+            <form
+              action="../php/auth.php"
+              method="post"
+              class="main-section__form popup"
+            >
+              <div class="main-section__form__item">
+                <label for="login"></label>
+                <input
+                  class="main-section__form__input"
+                  autocomplete="off"
+                  type="text"
+                  id="login"
+                  name="login"
+                  placeholder="Логин"
+                />
+              </div>
+              <div class="main-section__form__item">
+                <label for="login"></label>
+                <input
+                  class="main-section__form__input"
+                  list="cities"
+                  autocomplete="off"
+                  type="password"
+                  id="pass"
+                  name="pass"
+                  placeholder="Пароль"
+                />
+              </div>
+              <button class="main-section__form__button button close-popup">
+                Войти
+              </button>
+              <p>
+                <a class="main-section__form__item" href="registration1.html"
+                  >Еще не зарегистрированы? Зарегистрируйтесь здесь</a
+                >
+              </p>
+            </form>
+          </div>
+          <button type="submit" class="button open-popup" id="programm__button">
+            Войти
+          </button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../assets/styles/css2.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/custom-datepicker/air-datepicker.css"
+    />
+
+    <link rel="stylesheet" href="../assets/styles/LK.css" />
+
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="../assets/scripts/swiper@11/swiper-bundle.min.js"></script>
+    <title>РУСТУР.Личный кабинет</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container">
+        <a href="../index.html" class="logo">
+          <img src="../assets/images/logo.svg" alt="" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <section class="main-section">
+        <div class="container">
+          <div class="popup-wrapper _closed">
+            <h1 class="main-section__title" style="margin-top: 50px">
+              Личный кабинет
+            </h1>
+            <div class="popup-wrapper _closed">
+              <div class="ofter">
+                <form
+                  class="main-section__form popup"
+                  id="profile-form"
+                  action="../php/photoLK.php"
+                  method="post"
+                >
+                  <h2 class="main-section__title_average">
+                    Профиль пользователя
+                  </h2>
+                  <div id="user-profile">
+                    <p>
+                      <img
+                        src="../assets/images/user_avatar.png"
+                        alt="User Avatar"
+                        width="100"
+                        height="100"
+                        style="border-radius: 50%"
+                      />
+                    </p>
+                    <p>
+                      <strong class="main-section__title_litte"
+                        >Имя пользователя:</strong
+                      >
+                      <span
+                        class="main-section__title_litte"
+                        id="user-name"
+                      ></span>
+                    </p>
+                    <p>
+                      <strong class="main-section__title_litte">Логин:</strong>
+                      <span
+                        class="main-section__title_litte"
+                        id="user-login"
+                      ></span>
+                    </p>
+                    <p>
+                      <strong class="main-section__title_litte"
+                        >Описание:</strong
+                      >
+                      <span
+                        class="main-section__title_litte"
+                        id="user-description"
+                      ></span>
+                    </p>
+                  </div>
+                  <h2 class="main-section__title_average">Обновить профиль</h2>
+                  <label for="description"></label>
+                  <textarea
+                    class="main-section__form__input"
+                    autocomplete="off"
+                    id="description"
+                    name="description"
+                    placeholder="Описание"
+                    rows="4"
+                    cols="50"
+                  ></textarea>
+                  <button
+                    class="main-section__form__button button close-popup"
+                    type="submit"
+                  >
+                    Сохранить
+                  </button>
+                  <div id="notification" class="notification"></div>
+                </form>
+                <form class="main-section__form popup" id="password-form">
+                  <h2 class="main-section__title_average">Сменить пароль</h2>
+                  <label for="old-password"></label>
+                  <input
+                    class="main-section__form__input"
+                    autocomplete="off"
+                    type="password"
+                    placeholder=" Старый пароль"
+                    type="password"
+                    id="old-password"
+                    name="old-password"
+                    required
+                  />
+                  <label for="new-password"></label>
+                  <input
+                    class="main-section__form__input"
+                    autocomplete="off"
+                    type="password"
+                    placeholder=" Новый пароль"
+                    type="password"
+                    id="new-password"
+                    name="new-password"
+                    required
+                  />
+
+                  <button
+                    class="main-section__form__button button close-popup"
+                    type="submit"
+                  >
+                    Сохранить пароль
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // Получение данных пользователя с сервера
+      fetch("../php/get_user_data.php")
+        .then((response) => response.json())
+        .then((data) => {
+          // Заполняем поля профиля данными пользователя
+          document.getElementById("user-name").textContent = data.name;
+          document.getElementById("user-login").textContent = data.login;
+          document.getElementById("user-description").textContent =
+            data.description;
+        })
+        .catch((error) =>
+          console.error("Ошибка загрузки данных пользователя:", error)
+        );
+
+      // Обработка отправки данных профиля
+      // Обработка отправки данных профиля
+      document
+        .getElementById("profile-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          fetch("../php/photoLK.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => {
+              if (!response.ok) {
+                throw new Error("Ошибка HTTP: " + response.status);
+              }
+              return response.json();
+            })
+            .then((data) => {
+              const notification = document.getElementById("notification");
+              notification.textContent = data.message;
+              if (data.status === "success") {
+                notification.className = "notification success";
+
+                // Обновляем страницу через 1 секунды после успешного обновления профиля
+                setTimeout(() => {
+                  window.location.reload();
+                }, 1000);
+              } else {
+                notification.className = "notification error";
+              }
+              notification.style.display = "block"; // Показываем уведомление
+            })
+            .catch((error) => {
+              const notification = document.getElementById("notification");
+              notification.textContent =
+                "Ошибка при выполнении запроса: " + error.message;
+              notification.className = "notification error";
+              notification.style.display = "block";
+            });
+        });
+
+      // Обработка отправки данных смены пароля
+      document
+        .getElementById("password-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const formData = new FormData(event.target);
+          fetch("../php/change_password.php", {
+            method: "POST",
+            body: formData,
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              const notification = document.getElementById("notification");
+              notification.textContent = data.message;
+              if (data.status === "success") {
+                notification.className = "notification success";
+                // Перезагружаем страницу через 2 секунды после успешной смены пароля
+                setTimeout(() => {
+                  window.location.reload();
+                }, 2000);
+              } else {
+                notification.className = "notification error";
+                notification.style.display = "block";
+              }
+            })
+            .catch((error) => {
+              const notification = document.getElementById("notification");
+              notification.textContent = "Ошибка при выполнении запроса";
+              notification.className = "notification error";
+              notification.style.display = "block";
+            });
+        });
+    </script>
+  </body>
+</html>

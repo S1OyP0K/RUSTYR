@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="../assets/styles/css2.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/custom-datepicker/air-datepicker.css"
+    />
+
+    <link rel="stylesheet" href="../assets/styles/auto.css" />
+
+    <link
+      rel="stylesheet"
+      href="../assets/scripts/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="../assets/scripts/swiper@11/swiper-bundle.min.js"></script>
+
+    <title>Rumtibet</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__container container">
+        <a href="../index.html" class="logo">
+          <img src="../assets/images/logo.svg" alt="" />
+        </a>
+      </div>
+    </header>
+    <main>
+      <section class="main-section">
+        <div class="container">
+          <h1 class="main-section__title">Регистрация</h1>
+          <div class="popup-wrapper _closed">
+            <form
+              action="../php/check.php"
+              method="post"
+              onsubmit="return validateForm()"
+              class="main-section__form popup"
+            >
+              <div class="main-section__form__item">
+                <label for="login"></label>
+                <input
+                  required
+                  class="main-section__form__input"
+                  list="cities"
+                  autocomplete="off"
+                  type="text"
+                  id="login"
+                  name="login"
+                  placeholder="Логин (5-90 символов)"
+                />
+              </div>
+              <div class="main-section__form__item">
+                <label for="name"></label>
+                <input
+                  required
+                  class="main-section__form__input"
+                  list="cities"
+                  autocomplete="off"
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Имя (3-50 символов)"
+                />
+              </div>
+              <div class="main-section__form__item">
+                <label for="pass"></label>
+                <input
+                  required
+                  class="main-section__form__input"
+                  list="cities"
+                  autocomplete="off"
+                  type="password"
+                  id="pass"
+                  name="pass"
+                  placeholder="Пароль (8-16 символов)"
+                />
+              </div>
+              <button class="main-section__form__button button close-popup">
+                Регистрация
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="error" style="color: red; display: none"></div>
+    <script>
+      function validateForm() {
+        const login = document.getElementById("login").value;
+        const name = document.getElementById("name").value;
+        const pass = document.getElementById("pass").value;
+
+        if (login.length < 5 || login.length > 90) {
+          showError("Недопустимая длина логина");
+          return false;
+        } else if (name.length < 3 || name.length > 50) {
+          showError("Недопустимая длина имени");
+          return false;
+        } else if (pass.length < 8 || pass.length > 16) {
+          showError("Недопустимая длина пароля");
+          return false;
+        }
+
+        return true;
+      }
+
+      function showError(message) {
+        document.getElementById("error").textContent = message;
+        document.getElementById("error").style.display = "block";
+      }
+    </script>
+  </body>
+</html>
